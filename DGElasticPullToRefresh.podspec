@@ -9,9 +9,10 @@ Pod::Spec.new do |spec|
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.platform     = :ios, '8.0'
   spec.source_files = "DGElasticPullToRefresh/*.swift"
+  spec.swift_version = '5.0'
 
   spec.requires_arc = true
 
-  spec.ios.deployment_target = '8.0'
+  spec.ios.deployment_target = '9.0'
   spec.ios.frameworks = ['UIKit', 'Foundation']
 end

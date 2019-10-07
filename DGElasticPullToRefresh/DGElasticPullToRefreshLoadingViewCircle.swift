@@ -103,7 +103,7 @@ open class DGElasticPullToRefreshLoadingViewCircle: DGElasticPullToRefreshLoadin
         rotationAnimation.duration = 1.0
         rotationAnimation.repeatCount = Float.infinity
         rotationAnimation.isRemovedOnCompletion = false
-        rotationAnimation.fillMode = kCAFillModeForwards
+        rotationAnimation.fillMode = CAMediaTimingFillMode.forwards
         shapeLayer.add(rotationAnimation, forKey: kRotationAnimation)
     }
     
@@ -114,7 +114,12 @@ open class DGElasticPullToRefreshLoadingViewCircle: DGElasticPullToRefreshLoadin
     }
     
     fileprivate func currentDegree() -> CGFloat {
-        return shapeLayer.value(forKeyPath: "transform.rotation.z") as! CGFloat
+        
+        let n : NSNumber
+        n = shapeLayer.value(forKeyPath: "transform.rotation.z") as! NSNumber
+        return CGFloat(n.floatValue)
+        
+        //return shapeLayer.value(forKeyPath: "transform.rotation.z") as! CGFloat
     }
     
     override open func tintColorDidChange() {
